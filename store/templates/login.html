@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="p-5 m-5">
+        <div class="col-lg-4 mx-auto border border-3 rounded p-4">
+            <h3 class="alert alert-light fw-bold text-center text-danger ">LOGIN HERE</h3>
+            <form action="/login" method="POST">
+            {% csrf_token %}
+            {% if error %}
+              <div class="alert alert-danger" role="alert">
+                {{error}}
+              </div>
+            {% endif %}
+
+                <!-- email -->
+            <br>
+            <div class="form-group">
+              <label for="">Email</label>
+              <input required type="email"
+              value="{{values.email}}"
+              name="email" id=""
+              class="form-control form-control-sm"
+              placeholder="abc@gmail.com">
+            </div>
+            </br>
+            <!-- password -->
+            <br>
+            <div class="form-group">
+                <label for="">Password</label>
+                <input type="password"
+                name="password" id=""
+                class="form-control form-control-sm"
+                placeholder="*********">
+              </div>
+            </br>
+
+            <div class="form-group d-grid gap-3">
+            <div>
+                <input class="btn btn-sm btn-info col-lg-4" type="submit" value="user">
+            </div>
+                <h3 class="text-dark fs-6"> New to Nemesis Consultants?
+                    <a class="nav-link active text-info fs-6 text-left" aria-current="page" href="/signup"> Register Here </a>
+                </h3>
+            </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
